@@ -1,3 +1,46 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Shadows+Into+Light&display=swap');
+
+/*--------Colors-------*/
+
+.bg-color- body {
     background-color: #fafafa;
+}
+
+.title {
+    font-family: "Shadows Into Light", sans-serif;
+    font-weight: 500;
+    font-size: 2em;
+    padding-left: 20px;
+}
+
+nav a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+.menu li:not(:last-child) {
+    border-right: 1px solid grey;
+    margin-right: 20px;
+    padding-right: 20px;
+}
+
+header.hero {
+    height: 540px;
+    margin-bottom: 50px;
+    background: url('/static/images/hero.jpeg') no-repeat center center;
+    background-color: #868e96;
+    background-attachment: scroll;
+    position: relative;
+    background-size: cover;
+}
+
+header.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #212529;
+    opacity: 0.5;
 }
