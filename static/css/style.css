@@ -2,8 +2,12 @@
 
 /*--------Colors-------*/
 
-.bg-color- body {
+.bg-color-body {
     background-color: #fafafa;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
 }
 
 .title {
@@ -42,5 +46,18 @@ header.hero .overlay {
     height: 100%;
     width: 100%;
     background-color: #212529;
-    opacity: 0.5;
+    opacity: 0.2;
+}
+
+header.hero .site-heading h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-size: 4.4em;
+    font-weight: 800;
+    text-shadow: 0 0 5px #212529;
+}
+
+header.hero .subheading {
+    font-size: 1.2em;
+    color: #ffffff;
 }
