@@ -66,7 +66,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="#">Sign Up</a>
+              <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
             </li>
           </ul>
         </div>
@@ -74,6 +74,7 @@
     </nav>
 
     <!-- Page Header -->
+    {% block header %}
     <header class="hero d-flex align-items-center justify-content-center">
       <div class="overlay"></div>
       <div class="container">
@@ -91,6 +92,7 @@
         </div>
       </div>
     </header>
+    {% endblock %}
 
     <!-- Main Content -->
     <main>{% block content %} {% endblock %}</main>

@@ -82,12 +82,15 @@ header.hero .subheading {
 }
 
 .jumbotron .container {
+    height: 380px;
     background: rgba(245, 235, 224, 0.8);
     color: #212529;
+    justify-content: center;
+    align-items: center;
 }
 
 .sign-up-text {
-    font-size: 1.6em;
+    font-size: 1.4em;
     font-weight: 500;
     padding: 4% 4% 2% 4%;
     margin: 0;
@@ -103,10 +106,19 @@ header.hero .subheading {
     header.hero .site-heading h1 {
         font-size: 3.8em;
     }
+
+    .sign-up-text {
+        font-size: 1.1em;
+    }
 }
 
 @media screen and (max-width: 540px) {
     header.hero .site-heading h1 {
         font-size: 2.6em;
+    }
+
+    .jumbotron {
+        background: none;
+        background-color: #F5EBE0;
     }
 }
