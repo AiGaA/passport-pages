@@ -74,6 +74,10 @@ header.hero .subheading {
     object-fit: cover;
 }
 
+p.copyright.text-muted {
+    text-align: center;
+}
+
 @media screen and (max-width: 720px) {
     header.hero .site-heading h1 {
         font-size: 3.8em;
