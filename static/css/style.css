@@ -61,3 +61,15 @@ header.hero .subheading {
     font-size: 1.2em;
     color: #ffffff;
 }
+
+@media screen and (max-width: 720px) {
+    header.hero .site-heading h1 {
+        font-size: 3.8em;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    header.hero .site-heading h1 {
+        font-size: 2.6em;
+    }
+}
