@@ -63,20 +63,41 @@ header.hero .subheading {
 }
 
 .card-container {
-    margin-top: 2.2em;
+    margin-top: 5%;
 }
 
 .card {
-    margin: 0 20px;
+    margin: 0 5%;
 }
 
 .card img {
     object-fit: cover;
 }
 
-p.copyright.text-muted {
-    text-align: center;
+.jumbotron {
+    margin: 5% 0;
+    height: 420px;
+    background: url('/static/images/travel-diary.jpg') no-repeat center center;
+    background-size: cover;
 }
+
+.jumbotron .container {
+    background: rgba(245, 235, 224, 0.8);
+    color: #212529;
+}
+
+.sign-up-text {
+    font-size: 1.6em;
+    font-weight: 500;
+    padding: 4% 4% 2% 4%;
+    margin: 0;
+}
+
+.jumbotron .btn {
+    width: 160px;
+    margin-bottom: 2%;
+}
+
 
 @media screen and (max-width: 720px) {
     header.hero .site-heading h1 {
