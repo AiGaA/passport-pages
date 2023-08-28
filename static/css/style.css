@@ -62,6 +62,18 @@ header.hero .subheading {
     color: #ffffff;
 }
 
+.card-container {
+    margin-top: 2.2em;
+}
+
+.card {
+    margin: 0 20px;
+}
+
+.card img {
+    object-fit: cover;
+}
+
 @media screen and (max-width: 720px) {
     header.hero .site-heading h1 {
         font-size: 3.8em;
