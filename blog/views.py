@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.views import View
-from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
 
