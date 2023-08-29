@@ -14,18 +14,31 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     slug = models.SlugField(max_length=200, unique=True)
-    created_date = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(auto_now_add=True)
     image = CloudinaryField('image', default='placeholder')
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
     excerpt = models.TextField(blank=True)
 
     class Meta:
-        orderin = ['-created_on']
+        ordering = ['-created_on']
 
     def __str__(self):
         return self.title
-    
+
     def number_of_likes(self):
         return self.likes.count()
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    author = models.CharField(max_length=80)
+    content = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    approved_comment = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['created_on']
     
+    def __str__(self):
+        return self.content
