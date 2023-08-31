@@ -61,13 +61,18 @@
             <li class="nav-item">
               <a class="nav-link" href="#">About</a>
             </li>
+            {% if user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}">Login</a>
+              <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
             </li>
-
+            {% else %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+              <a class="nav-link" href="{% url 'account_login' %}">Login</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a>
+            </li>
+            {% endif %}
           </ul>
         </div>
       </div>
@@ -108,7 +113,7 @@
               <li class="list-inline-item">
                 <a href="#">
                   <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-circle fa-stack-2x accent-color"></i>
                     <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
@@ -116,7 +121,7 @@
               <li class="list-inline-item">
                 <a href="#">
                   <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-circle fa-stack-2x accent-color"></i>
                     <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
@@ -124,7 +129,7 @@
               <li class="list-inline-item">
                 <a href="#">
                   <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-circle fa-stack-2x accent-color"></i>
                     <i class="fab fa-github fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>

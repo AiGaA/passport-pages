@@ -6,6 +6,15 @@
     background-color: #fafafa;
 }
 
+.accent-color {
+    color: #fc4a1a;
+    transition: all 0.5s ease-in-out;
+}
+
+.accent-color:hover {
+    color: #f7b733;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
 }
@@ -77,8 +86,7 @@ header.hero .subheading {
 .jumbotron {
     margin: 5% 0;
     height: 420px;
-    background: url('/static/images/travel-diary.jpg') no-repeat center center;
-    background-size: cover;
+    background: linear-gradient(to right, #fc4a1a, #f7b733);
 }
 
 .jumbotron .container {
@@ -96,9 +104,18 @@ header.hero .subheading {
     margin: 0;
 }
 
-.jumbotron .btn {
-    width: 160px;
-    margin-bottom: 2%;
+.sign-up-btn {
+    width: 120px;
+    height: 40px;
+    /* fallback for old browsers */
+    background: #fc4a1a;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #fc4a1a, #f7b733);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #fc4a1a, #f7b733);
+    text-decoration: none;
+    border: #fc4a1a 1px solid !important;
+    color: #ffffff;
 }
 
 
