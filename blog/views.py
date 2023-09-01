@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Post
 
@@ -15,23 +15,9 @@ class PostList(generic.ListView):
     template_name = 'blog/all_posts.html'
 
 
-class PostDetailView(View):
-
-    def get(self, request, slug, *args, **kwards):
-        post = get_object_or_404(slug=slug)
-        liked = False
-        if post.likes.filter(id=self.request.user.id).exists():
-            liked = True
-
-        return render(
-            request,
-            "blog/post_detail.html",
-            {
-                "post": post,
-                "comments": comments,
-                "liked": liked
-            },
-        )
+class PostDetailView(generic.DetailView):
+    model = Post
+    template_name = 'blog/post_detail.html'
 
 
 def add_post(request):

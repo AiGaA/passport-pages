@@ -23,5 +23,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('add_post/', views.add_post, name='add_post'),
     path('all_posts/', views.PostList.as_view(), name='all_posts'),
-    path('article/<int:pk>', views.PostDetailView.as_view(), name='post_detail'),
+    path('post/<int:pk>/', views.PostDetailView.as_view(), name='post_detail'),
 ]
