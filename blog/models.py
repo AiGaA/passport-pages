@@ -5,8 +5,6 @@ from django.utils import timezone
 
 # Create your models here.
 
-STATUS = ((0, 'Draft'), (1, 'Published'))
-
 
 class Post(models.Model):
     author = models.ForeignKey(
@@ -16,7 +14,6 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     created_on = models.DateTimeField(auto_now_add=True)
     image = CloudinaryField('image', default='placeholder')
-    status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
     excerpt = models.TextField(blank=True)
 
@@ -31,7 +28,8 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name='comments')
     author = models.CharField(max_length=80)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
@@ -39,6 +37,6 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ['created_on']
-    
+
     def __str__(self):
         return self.content
