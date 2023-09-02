@@ -26,9 +26,14 @@ class Post(models.Model):
     def number_of_likes(self):
         return self.likes.count()
 
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name='comments')
     author = models.CharField(max_length=80)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)

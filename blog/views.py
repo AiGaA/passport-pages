@@ -5,8 +5,10 @@ from .models import Post
 # Create your views here.
 
 
-def home(request):
-    return render(request, 'blog/index.html')
+class HomePage(generic.ListView):
+    model = Post
+    queryset = Post.objects.order_by('-created_on')
+    template_name = 'blog/index.html'
 
 
 class PostList(generic.ListView):

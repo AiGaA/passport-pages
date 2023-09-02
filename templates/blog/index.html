@@ -6,73 +6,31 @@
   </div>
 </div>
 
-<div class="container card-container">
+<div class="container-fluid">
   <div class="row">
-    {% for post in post_list %}
-    <div class="col-md-4">
-      <div class="card mb-4">
-        <div class="card-body">
-          <div class="image-container">
-            {% if "placeholder" in post.featured_image.url %}
-            <img
-              class="card-img-top"
-              src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
-            />
-            {% else %}
-            <img class="card-img-top" src=" {{ post.featured_image.url }}" />
-            {% endif %}
-            <div class="image-flash">
-              <p class="author">Author: {{ post.author }}</p>
+    <!-- Blog Entries Column -->
+    <div class="col-12 mt-3 left">
+      <div class="row">
+        {% for post in post_list %}
+        <div class="card" style="width: 18rem;">
+            <img src="/static/images/placeholder-img.png" class="card-img-top" alt="placeholder image">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</a></h5>
+                <p class="card-text">By: {{ post.author }}</p>
+                <p><a href="{% url 'post_detail' post.pk %}">Read More</a></p>
             </div>
-          </div>
-          <a href="#" class="post-link">
-            <h2 class="card-title">{{ post.title }}</h2>
-            <p class="card-text">{{ post.excerpt }}</p>
-          </a>
-          <hr />
-          <p class="card-text text-muted h6">
-            {{ post.created_on}} <i class="far fa-heart"></i> {{
-            post.number_of_likes }}
-          </p>
         </div>
+        {% endfor %}
       </div>
     </div>
-    {% if forloop.counter|divisibleby:3 %}
-  </div>
-  <div class="row">
-    {% endif %} {% endfor %}
-
-    <!-- <div class="card">
-        <img
-          class="card-img-top"
-          src="/static/images/placeholder-img.png"
-          alt="Card image cap"
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text author">By</p>
-          <p class="card-text">
-            <small class="text-muted">Posted on </small>
-          </p>
-        </div>
-      </div> -->
-
-    <!-- <div class="card">
-        <img
-          class="card-img-top"
-          src="/static/images/placeholder-img.png"
-          alt="Card image cap"
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text author">By</p>
-          <p class="card-text">
-            <small class="text-muted">Posted on </small>
-          </p>
-        </div>
-      </div> -->
   </div>
 </div>
+
+<!-- <img
+                class="card-img-top"
+                src="/static/images/placeholder-img.png"
+                alt="Card image cap"
+              /> -->
 
 <div class="jumbotron d-flex align-items-center justify-content-center">
   <div class="container text-center">

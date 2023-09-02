@@ -1,50 +1,61 @@
-{% extends "blog/base.html" %}
-{% load static %}
+{% extends "blog/base.html" %} {% load static %}
 <!--This will hide the header content-->
-{% block header %} {% endblock %}
-
-{% block title %}
-   Add a new article
-{% endblock %}
-
-{% block content %}
+{% block header %} {% endblock %} {% block title %} Add a new article {%
+endblock %} {% block content %}
 <div class="row mt-5">
   <div class="col-md-2"></div>
   <div class="col-md-8">
     <div class="p-3 mb-2 bg-white text-dark">
-
       <!--Display error - Bootstrap alert-->
       {% if is_error %}
-        <div class="alert alert-info" role="alert">
-          <h4 class="alert-heading">Error!</h4>
-          <p>Could not add data. Please try again later!</p>
-        </div>
+      <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">Error!</h4>
+        <p>Could not add data. Please try again later!</p>
+      </div>
       {% endif %}
 
       <!--Use Django form -->
-      <form action="{% url 'add_post' %}" method="post" enctype="multipart/form-data">
+      <form
+        action="{% url 'add_post' %}"
+        method="POST"
+        enctype="multipart/form-data"
+      >
         {% csrf_token %}
 
         <div class="mb-3">
-            <label for="head_title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title" placeholder="Title" value="{{ post.title }}">
+          <label for="head_title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            placeholder="Title"
+            value="{{ post.title }}"
+          />
         </div>
 
         <div class="mb-3">
-            <label for="content" class="form-label">Your Story</label>
-            <textarea class="form-control" id="content" rows="3" value="{{ post.content }}"></textarea>
+          <label for="content" class="form-label">Your Story</label>
+          <textarea
+            class="form-control"
+            id="content"
+            rows="3"
+            value="{{ post.content }}"
+          ></textarea>
         </div>
 
         <div class="mb-3">
-            <label for="image" class="form-label">Cover Photo</label>
-            <input class="form-control" type="file" id="image" value="{{ post.image }}">
+          <label for="image" class="form-label">Cover Photo</label>
+          <input
+            class="form-control"
+            type="file"
+            id="image"
+            value="{{ post.image }}"
+          />
         </div>
 
-        
         <button type="submit" class="btn btn_color sign-up-btn">Publish</button>
       </form>
     </div>
-
   </div>
 
   <div class="col-md-2"></div>
