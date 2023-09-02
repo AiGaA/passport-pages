@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %} {% block content %}
+<!--This will hide the header content-->
+{% block header %} {% endblock %}
+
+<div class="row">
+    <div class="text-center">
+        <h2>My stories</h2>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        {% if request.user == post.author or request.user.is_superuser %}
+            <!-- Blog Entries Column -->
+            {% for post in post_list %}
+            <div class="card" style="width: 20rem;">
+
+                {% if "placeholder" in post.image.url %}
+                <img src="/static/images/placeholder-img.png" class="card-img-top" alt="placeholder image">
+                {% else %}
+                <img src="{{ post.image.url }}" class="card-img-top" alt="placeholder image">
+                {% endif %}
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</a></h5>
+                    <p>By: {{ post.author }}</p>
+                    <p><a href="{% url 'post_detail' post.pk %}">Read More</a></p>
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

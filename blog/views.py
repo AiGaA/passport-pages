@@ -43,8 +43,43 @@ def add_post(request):
             return redirect(reverse('all_posts'))
 
         # if a GET (or any other method) we'll create a blank form
-        else:
-            form = AddPost()
-            if 'submitted' in request.GET:
-                submitted = True
-    return render(request, "blog/add_post.html", {'form': form, 'submitted': submitted})
+    else:
+        form = AddPost()
+        if 'submitted' in request.GET:
+            submitted = True
+    return render(request, "blog/add_post.html",
+                  {'form': form, 'submitted': submitted})
+
+
+def edit_post(request, pk):
+
+    post = get_object_or_404(Post, pk=pk)
+
+    # if this is a POST request we need to process the form data
+    if request.method == "POST":
+        form = AddPost(request.POST, request.FILES, instance=post)
+        # check whether it's valid:
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.author = User.objects.get(id=request.user.id)
+            # process the data in form.cleaned_data as required
+            user.save()
+            # redirect to a new URL:
+            return redirect(reverse('all_posts'))
+
+        # if a GET (or any other method) we'll create a blank form
+    else:
+        form = AddPost(instance=post)
+        if 'submitted' in request.GET:
+            submitted = True
+    return render(request, "blog/edit_post.html", {'form': form, 'post': post})
+
+
+def delete_post(request, pk):
+    """
+    TODO:Need to add validations if user is allowed to do this action
+    """
+
+    post = get_object_or_404(Post, pk=pk)
+    post.delete()
+    return redirect(reverse('all_posts'))
