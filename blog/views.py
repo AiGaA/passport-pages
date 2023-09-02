@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
 from .models import Post
 from .forms import AddPost
 
@@ -31,22 +32,23 @@ class PostDetailView(generic.DetailView):
 
 def add_post(request):
     submitted = False
+    # create a form instance and populate it with data from the request:
+    form = AddPost(request.POST, request.FILES)
     # if this is a POST request we need to process the form data
     if request.method == "POST":
-        # create a form instance and populate it with data from the request:
-        form = AddPost(request.POST, request.FILES)
 
         # check whether it's valid:
         if form.is_valid():
+            user = form.save(commit=False)
+            user.author = User.objects.get(id=request.user.id)
             # process the data in form.cleaned_data as required
-            form.save()
+            user.save()
             # redirect to a new URL:
-            return HttpResponseRedirect("blog/all_posts.html?submitted=True")
+            return redirect(reverse('all_posts'))
 
         # if a GET (or any other method) we'll create a blank form
         else:
             form = AddPost()
             if 'submitted' in request.GET:
                 submitted = True
-
     return render(request, "blog/add_post.html", {'form': form, 'submitted': submitted})
