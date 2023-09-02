@@ -6,25 +6,43 @@
 <!--Display error - Bootstrap alert-->
 {% if submitted %} Your post has been saved! {% else %}
 
-<!--Use Django form -->
-<form action="{% url 'add_post' %}" method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  <div class="mb-3">
-    <label for="head_title" class="form-label">Title</label>
-    {{ form.title }}
+<div class="row">
+  <div class="mt-5 text-center">
+    <h2>Add your story</h2>
   </div>
+</div>
 
-  <div class="mb-3">
-    <label for="content" class="form-label">New Story</label>
-    {{ form.content }}
+<div class="container">
+  <div class="row">
+    <div class="form-group mt-5 mb-5">
+      <!--Use Django form -->
+      <form
+        action="{% url 'add_post' %}"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="head_title" class="form-label">Title</label>
+          {{ form.title }}
+        </div>
+
+        <div class="mb-3">
+          <label for="content" class="form-label">New Story</label>
+          {{ form.content }}
+        </div>
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Cover Photo</label>
+          {{ form.image }}
+        </div>
+
+        <button type="submit" class="btn btn_color sign-up-btn float-end">
+          Publish
+        </button>
+      </form>
+    </div>
   </div>
-
-  <div class="mb-3">
-    <label for="image" class="form-label">Cover Photo</label>
-    {{ form.image }}
-  </div>
-
-  <button type="submit" class="btn btn_color sign-up-btn">Publish</button>
-</form>
+</div>
 
 {% endif %} {% endblock %}

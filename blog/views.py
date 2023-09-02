@@ -11,7 +11,7 @@ from .forms import AddPost
 
 class HomePage(generic.ListView):
     model = Post
-    queryset = Post.objects.order_by('-created_on')
+    queryset = Post.objects.order_by('-created_on')[:3]
     template_name = 'blog/index.html'
 
 
@@ -24,10 +24,6 @@ class PostList(generic.ListView):
 class PostDetailView(generic.DetailView):
     model = Post
     template_name = 'blog/post_detail.html'
-
-
-# def add_post(request):
-#     return render(request, 'blog/add_post.html')
 
 
 def add_post(request):

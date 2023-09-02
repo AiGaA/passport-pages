@@ -4,16 +4,43 @@
 {% block header %} {% endblock %}
 
 {% block content %}
+<div class="row">
+    <div class="mt-5 text-center">
+        <h2>All Stories</h2>
+    </div>
+</div>
 
-<h2>All Posts</h2>
-
-<ul>
-{% for post in post_list %}
-    <li> 
-        <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>  -  {{ post.author }}</br>
-        {{ post.body }}
-    </li>
-{% endfor %}
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-5 mb-5">
+        {% for post in post_list %}
+                <div class="card mt-3">
+                    <div class="row">
+                        
+                        <div class="col-md-4">
+                            {% if "placeholder" in post.image.url %}
+                            <a href="{% url 'post_detail' post.pk %}">
+                                <img src="/static/images/placeholder-img.png" class="card-img-top" alt="placeholder image">
+                            </a>
+                            {% else %}
+                            <a href="{% url 'post_detail' post.pk %}">
+                                <img src="{{ post.image.url }}" class="card-img-top" alt="post image">
+                            </a>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h5>
+                                <p>By: {{ post.author }}</p>
+                                <p>{{ post.content }}</p>
+                                <a href="{% url 'post_detail' post.pk %}">Read More</br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
 
 {% endblock %}

@@ -1,10 +1,15 @@
 from django.forms import ModelForm
 from django import forms
 from .models import Post
-from cloudinary.models import CloudinaryField
 
 
-class AddPost(ModelForm):
+class AddPost(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'content', 'image']
+
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'content': forms.Textarea(attrs={'class': 'form-control'}),
+            'image': forms.FileInput(attrs={'class': 'form-control'}),
+        }

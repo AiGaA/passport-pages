@@ -1,14 +1,28 @@
-{% extends "blog/base.html" %}
-{% load static %}
+{% extends "blog/base.html" %} {% load static %}
 <!--This will hide the header content-->
-{% block header %} {% endblock %}
+{% block header %} {% endblock %} {% block content %}
 
-{% block content %}
-
-
-    <h1>{{ post.title }}</h1>
-    <small>{{ post.created_on }}</small>
-    <p>{{ post.author }}</p>
-    <p>{{ post.content }}</p>
+<div class="container">
+  <div class="row">
+    <div class="card col-lg-8 mt-5 mb-3 mx-auto">
+      {% if "placeholder" in post.image.url %}
+      <img
+        src="/static/images/placeholder-img.png"
+        class="card-img-top"
+        alt="placeholder image"
+      />
+      {% else %}
+      <img src="{{ post.image.url }}" class="card-img-top" alt="post image" />
+      {% endif %}
+      <div class="card-body card-text">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <p class="post-author">By: {{ post.author }}</p>
+        <small>{{ post.created_on }}</small>
+        <hr />
+        <p>{{ post.content }}</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

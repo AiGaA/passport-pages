@@ -11,7 +11,6 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name="blog_post")
     title = models.CharField(max_length=200)
     content = models.TextField()
-    # slug = models.SlugField(max_length=200, unique=True)
     created_on = models.DateTimeField(auto_now_add=True)
     image = CloudinaryField('image', default='placeholder')
     likes = models.ManyToManyField(User, related_name='post_likes', blank=True)

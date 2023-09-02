@@ -118,6 +118,30 @@ header.hero .subheading {
     color: #ffffff;
 }
 
+.card-title a {
+    text-decoration: none;
+    color: #fc4a1a;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.card-text {
+    text-align: center;
+}
+
+.card-text h5 {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.card-text small {
+    font-size: 12px;
+}
+
+.post-author {
+    font-style: italic;
+}
+
 
 @media screen and (max-width: 720px) {
     header.hero .site-heading h1 {
