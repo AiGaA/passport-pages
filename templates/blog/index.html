@@ -14,17 +14,17 @@
         {% for post in post_list %}
         <div class="card" style="width: 18rem;">
 
-            {% if "placeholder" in post.featured_image.url %}
-                <img src="/static/images/placeholder-img.png" class="card-img-top" alt="placeholder image">
-                {% else %}
-                <img src="{{ post.image.url }}" class="card-img-top" alt="placeholder image">
+            {% if "placeholder" in post.image.url %}
+            <img src="/static/images/placeholder-img.png" class="card-img-top" alt="placeholder image">
+            {% else %}
+            <img src="{{ post.image.url }}" class="card-img-top" alt="placeholder image">
             {% endif %}    
             
-        <div class="card-body">
-            <h5 class="card-title">{{ post.title }}</a></h5>
-            <p class="card-text">By: {{ post.author }}</p>
-            <p><a href="{% url 'post_detail' post.pk %}">Read More</a></p>
-        </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</a></h5>
+                <p class="card-text">By: {{ post.author }}</p>
+                <p><a href="{% url 'post_detail' post.pk %}">Read More</a></p>
+            </div>
         </div>
         {% endfor %}
       </div>
