@@ -3,17 +3,25 @@
 {% block header %} {% endblock %}
 
 <div class="row">
-    <div class="text-center">
+    <div class="text-center mt-5">
         <h2>My stories</h2>
     </div>
 </div>
+<div class="row">
+        <a href="{% url 'add_post' %}">
+            <button href="{% url 'add_post' %}" class="btn btn_color sign-up-btn float-end me-5 mb-5">
+                Add Story
+            </button>
+        </a>
+<div>
 
-<div class="container-fluid">
+<div class="container bg-color-content">
     <div class="row">
-        {% if request.user == post.author or request.user.is_superuser %}
-            <!-- Blog Entries Column -->
-            {% for post in post_list %}
-            <div class="card" style="width: 20rem;">
+        <div class="card-group">
+        <!-- Blog Entries Column -->
+        {% for post in object_list %}
+            {% if request.user == post.author or request.user.is_superuser %}
+            <div class="card mt-5 mb-5 featured-card" style="width: 20rem;">
 
                 {% if "placeholder" in post.image.url %}
                 <img src="/static/images/placeholder-img.png" class="card-img-top" alt="placeholder image">
@@ -24,11 +32,15 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ post.title }}</a></h5>
                     <p>By: {{ post.author }}</p>
-                    <p><a href="{% url 'post_detail' post.pk %}">Read More</a></p>
+                    <small>{{ post.created_on }}</small>
+                    <p><a href="{% url 'post_detail' post.pk %}">Read More</a>
+                    <a href="{% url 'edit_post' post.pk %}"><i class="fas fa-pencil-alt accent-color float-end"></i></a></p>
+                    <a href="{% url 'delete_post' post.pk %}"><i class="fas fa-trash-alt accent-color float-end"></i></a>
                 </div>
             </div>
-            {% endfor %}
-        {% endif %}
+            {% endif %}
+        {% endfor %}
+        </div>
     </div>
 </div>
 

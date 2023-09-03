@@ -3,6 +3,7 @@
 {% block header %} {% endblock %} {% block title %} Add a new article
 {%endblock%} {% block content %}
 
+<!--Display error - Bootstrap alert-->
 {% if submitted %} Your post has been saved! {% else %}
 
 <div class="row">
@@ -11,7 +12,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container bg-color-content">
   <div class="row">
     <div class="form-group mt-5 mb-5">
       <!--Use Django form -->

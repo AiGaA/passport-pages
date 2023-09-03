@@ -6,6 +6,10 @@
     background-color: #fafafa;
 }
 
+.bg-color-content {
+    background-color: #EDEDE9;
+}
+
 .accent-color {
     color: #fc4a1a;
     transition: all 0.5s ease-in-out;
@@ -118,6 +122,12 @@ header.hero .subheading {
     color: #ffffff;
 }
 
+.featured-card img {
+    padding-top: 10px;
+    max-height: 220px;
+    object-fit: cover;
+}
+
 .card-title a {
     text-decoration: none;
     color: #fc4a1a;
@@ -140,6 +150,18 @@ header.hero .subheading {
 
 .post-author {
     font-style: italic;
+}
+
+.current-img img {
+    height: 220px;
+    width: 360px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.trash-can-lrg {
+    height: 50px;
+    width: 30px;
 }
 
 

@@ -35,7 +35,7 @@
                                 <p>{{ post.content }}</p>
                                 <a href="{% url 'post_detail' post.pk %}">Read More</br>
                                     {% if request.user == post.author or request.user.is_superuser %}
-                                    <a href="{% url 'edit_post' post.pk %}">Edit</a>
+                                    <a href="{% url 'edit_post' post.pk %}"><i class="fas fa-pencil-alt accent-color"></i></a>
                                     {% endif %}
                             </div>
                         </div>

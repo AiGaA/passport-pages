@@ -21,6 +21,12 @@ class PostList(generic.ListView):
     template_name = 'blog/all_posts.html'
 
 
+class UserPostList(generic.ListView):
+    model = Post
+    queryset = Post.objects.order_by('-created_on')
+    template_name = 'blog/user_posts.html'
+
+
 class PostDetailView(generic.DetailView):
     model = Post
     template_name = 'blog/post_detail.html'

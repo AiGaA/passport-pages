@@ -6,11 +6,12 @@
   </div>
 </div>
 
-<div class="container-fluid">
+<div class="container">
   <div class="row">
+    <div class="card-group">
     <!-- Blog Entries Column -->
         {% for post in post_list %}
-        <div class="card" style="width: 20rem;">
+        <div class="card mt-5" style="width: 20rem;">
 
             {% if "placeholder" in post.image.url %}
             <img src="/static/images/placeholder-img.png" class="card-img-top" alt="placeholder image">
@@ -25,6 +26,7 @@
             </div>
         </div>
         {% endfor %}
+    </div>
   </div>
 </div>
 

@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container bg-color-content">
   <div class="row">
     <div class="form-group mt-5 mb-5">
       <!--Use Django form -->
@@ -32,17 +32,23 @@
           {{ form.content }}
         </div>
 
-        <div class="mb-3">
+        <div class="mb-3 current-img">
           <label for="image" class="form-label">Cover Photo</label>
           <br />
           <span>Current image</span><br />
           <img src="{{ post.image.url }}" alt="Post image" />
           {{ form.image }}
         </div>
-
-        <button type="submit" class="btn btn_color sign-up-btn float-end">
-          Publish
-        </button>
+        <div class="float-end" style="display: inline-block">
+          <button type="submit" class="btn btn_color sign-up-btn">
+            Publish
+          </button>
+          <a href="{% url 'delete_post' post.pk %}"
+            ><button type="button" class="btn btn_color btn-outline-danger">
+              Delete
+            </button></a
+          >
+        </div>
       </form>
     </div>
   </div>
