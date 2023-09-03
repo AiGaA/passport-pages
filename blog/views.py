@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
+from django.views.generic.edit import FormMixin
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from .models import Post, Comment
@@ -30,8 +31,6 @@ class UserPostList(generic.ListView):
 class PostDetailView(generic.DetailView):
     model = Post
     template_name = 'blog/post_detail.html'
-    form = CommentsForm()
-    extra_context = {'form': form}
 
 
 def add_post(request):
