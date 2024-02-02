@@ -96,14 +96,14 @@ header.hero .subheading {
 
 .jumbotron .container {
     height: 380px;
-    background: rgba(245, 235, 224, 0.8);
-    color: #212529;
+    /* background: rgba(245, 235, 224, 0.8); */
+    color: #ffffff;
     justify-content: center;
     align-items: center;
 }
 
 .sign-up-text {
-    font-size: 1.4em;
+    font-size: 2em;
     font-weight: 500;
     padding: 4% 4% 2% 4%;
     margin: 0;
@@ -115,12 +115,21 @@ header.hero .subheading {
     /* fallback for old browsers */
     background: #fc4a1a;
     /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, #fc4a1a, #f7b733);
+    background: #fc4a1a;
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, #fc4a1a, #f7b733);
+    background: #fc4a1a;
     text-decoration: none;
     border: #fc4a1a 1px solid !important;
     color: #ffffff;
+    text-align: center;
+}
+
+.sign-up-btn:hover {
+    background: #f7b733;
+    transition: ease-in-out 0.5s;
+}
+.sign-up-btn p {
+    padding: 2%;
 }
 
 .featured-card img {

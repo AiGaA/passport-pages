@@ -36,8 +36,9 @@
           <label for="image" class="form-label">Cover Photo</label>
           <br />
           <span>Current image</span><br />
-          <img src="{{ post.image.url }}" alt="Post image" />
-          {{ form.image }}
+          
+            <img class="card-img-top img-fluid" src="{{ form.image.url }}" alt="Placeholder image">
+         
         </div>
         <div class="float-end" style="display: inline-block">
           <button type="submit" class="btn btn_color sign-up-btn">
