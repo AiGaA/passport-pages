@@ -8,7 +8,7 @@
 
 <div class="row">
   <div class="mt-5 text-center">
-    <h2>Add your story</h2>
+    <h2>Edit your story</h2>
   </div>
 </div>
 
@@ -36,13 +36,19 @@
           <label for="image" class="form-label">Cover Photo</label>
           <br />
           <span>Current image</span><br />
-          
-            <img class="card-img-top img-fluid" src="{{ form.image.url }}" alt="Placeholder image">
-         
+            {% if "placeholder" in post.image.url %}
+                <img src="/static/images/placeholder-img.png" class="card-img-top" alt="placeholder image">
+                <p>Change your image:</p>
+                {{ form.image }}
+              {% else %}
+                <img src="{{ post.image.url }}" class="card-img-top" alt="placeholder image">
+                <p>Change your image:</p>
+                {{ form.image }}
+            {% endif %}
         </div>
         <div class="float-end" style="display: inline-block">
           <button type="submit" class="btn btn_color sign-up-btn">
-            Publish
+            Save
           </button>
           <a href="{% url 'delete_post' post.pk %}"
             ><button type="button" class="btn btn_color btn-outline-danger">
