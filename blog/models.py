@@ -35,11 +35,13 @@ class Comment(models.Model):
         Post, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(
         User, on_delete=models.CASCADE)
-    content = models.TextField(max_length=500)
+    text = models.TextField(max_length=500)
     created_on = models.DateTimeField(auto_now_add=True)
+    approved_comment = models.BooleanField(default=False, null=True)
+
 
     class Meta:
         ordering = ['created_on']
 
     def __str__(self):
-        return self.content
+        return self.text

@@ -31,6 +31,21 @@
         <hr />
         <p>{{ post.content }}</p>
       </div>
+        {% for comment in comments %}
+          <p>{{ comment.text }} - {{ comment.author }} ({{ comment.created_on }})</p>
+        {% endfor %}
+        <!-- <form method="post" action="{% url 'add_comment' %}">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="content" class="form-label">New Story</label>
+            {{ form.content }}
+          </div>
+          <button type="submit">Submit Comment</button>
+        </form> -->
+        <!-- {% for comment in comments %}
+          <p>{{ comment.text }} - {{ comment.user.username }} ({{ comment.created_at }})</p>
+        {% endfor %} -->
+        {% include "blog/add_comment.html" %}
     </div>
   </div>
 </div>

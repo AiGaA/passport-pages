@@ -1,0 +1,27 @@
+{% block content %}
+  <h2>Add a Comment</h2>
+
+
+  <div class="container bg-color-content">
+    <div class="row">
+      <div class="form-group mt-5 mb-5">
+        <!--Use Django form -->
+        <form
+          action="{% url 'add_comment' %}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="text" class="form-label">New Comment</label>
+            {{ form.text }}
+          </div>
+
+          <button type="submit" class="btn btn_color sign-up-btn float-end">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

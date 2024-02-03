@@ -30,8 +30,8 @@ class EditPost(forms.ModelForm):
 class CommentsForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['content']
+        fields = ['text']
 
         widgets = {
-            'content': forms.Textarea(attrs={'class': 'form-control'}),
+            'text': forms.Textarea(attrs={'class': 'form-control'}),
         }
