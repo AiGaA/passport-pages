@@ -15,9 +15,14 @@
       <img src="{{ post.image.url }}" class="card-img-top" alt="post image" />
       {% endif %}
       <div class="col-lg-12">
+        
         <strong class="text-secondary float-end me-3">
           {{ post.number_of_likes }} <i class="far fa-heart"></i>
+          {% if request.user == post.author or request.user.is_superuser %}
+          <a href="{% url 'edit_post' post.pk %}"><i class="fas fa-pencil-alt accent-color"></i></a>
+          {% endif %}
         </strong>
+        
       </div>
       <div class="card-body card-text">
         <h5 class="card-title">{{ post.title }}</h5>
