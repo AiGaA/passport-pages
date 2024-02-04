@@ -7,40 +7,48 @@
         <h2>My stories</h2>
     </div>
 </div>
-<div class="row">
-        <a href="{% url 'add_post' %}">
-            <button href="{% url 'add_post' %}" class="btn btn_color sign-up-btn float-end me-5 mb-5">
-                Add Story
-            </button>
+<div class="container">
+    <div class="row">
+        <a href="{% url 'add_post' %}" class="btn btn_color sign-up-btn mt-3 mb-3" role="button">
+            Add Story
         </a>
-<div>
+    </div>
+</div>
 
 <div class="container bg-color-content">
     <div class="row">
         <div class="card-group">
-        <!-- Blog Entries Column -->
-        {% for post in object_list %}
-            {% if request.user == post.author or request.user.is_superuser %}
-            <div class="card mt-5 mb-5 featured-card" style="width: 20rem;">
+            <!-- Blog Entries Column -->
+            {% for post in object_list %}
+                {% if request.user == post.author or request.user.is_superuser %}
+                <div class="col-md-4 mb-3">
+                    <div class="card mt-5 mb-5 featured-card" style="width: 20rem;">
+                        {% if "placeholder" in post.image.url %}
+                        <img src="/static/images/placeholder-img.png" class="card-img-top" alt="placeholder image">
+                        {% else %}
+                        <img src="{{ post.image.url }}" class="card-img-top" alt="placeholder image">
+                        {% endif %}
 
-                {% if "placeholder" in post.image.url %}
-                <img src="/static/images/placeholder-img.png" class="card-img-top" alt="placeholder image">
-                {% else %}
-                <img src="{{ post.image.url }}" class="card-img-top" alt="placeholder image">
-                {% endif %}
-
-                <div class="card-body">
-                    <h5 class="card-title">{{ post.title }}</a></h5>
-                    <p>By: {{ post.author }}</p>
-                    <small>{{ post.created_on }}</small>
-                    <p><a href="{% url 'post_detail' post.pk %}">Read More</a>
-                    <a href="{% url 'edit_post' post.pk %}"><i class="fas fa-pencil-alt accent-color float-end"></i></a></p>
-                    <a href="{% url 'delete_post' post.pk %}"><i class="fas fa-trash-alt accent-color float-end"></i></a>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.title }}</a></h5>
+                            <p>By: {{ post.author }}</p>
+                            <small>{{ post.created_on }}</small>
+                            <p><a href="{% url 'post_detail' post.pk %}">Read More</a>
+                            <a href="{% url 'edit_post' post.pk %}"><i class="fas fa-pencil-alt accent-color float-end"></i></a></p>
+                            <a href="{% url 'delete_post' post.pk %}"><i class="fas fa-trash-alt accent-color float-end"></i></a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            {% endif %}
-        {% endfor %}
+                {% endif %}
+            {% endfor %}
         </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <a href="{% url 'add_post' %}" class="btn btn_color sign-up-btn mt-3 mb-3" role="button">
+            Add Story
+        </a>
     </div>
 </div>
 
