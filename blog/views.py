@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.shortcuts import render, get_object_or_404 , redirect, reverse
 from django.views import generic, View
 from django.views.generic.edit import FormMixin
 from django.http import HttpResponseRedirect
@@ -28,29 +28,42 @@ class UserPostList(generic.ListView):
     template_name = 'blog/user_posts.html'
 
 
-# class PostDetailView(generic.DetailView):
-#     model = Post
-#     # comment_model = Comment
-#     # queryset = Comment.objects.order_by('-created_on')
-#     template_name = 'blog/post_detail.html'
-
-
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     comments = Comment.objects.filter(post=post)
-    comment_form = CommentsForm()
+    # comment_form = CommentsForm()
     
+    # if request.method == 'POST':
+    #     comment_form = CommentsForm(request.POST)
+    #     if comment_form.is_valid():
+    #         comment = comment_form.save(commit=False)
+    #         comment.user = request.user
+    #         comment.post = post
+    #         comment.save()
+    #         return redirect('post_detail', pk=post.id)
+
+    return render(request, 'blog/post_detail.html', {'post': post, 'comments': comments})
+
+
+def add_comment(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    submitted = False
+    form = CommentsForm()
+
     if request.method == 'POST':
-        comment_form = CommentsForm(request.POST)
-        if comment_form.is_valid():
-            comment = comment_form.save(commit=False)
-            comment.user = request.user
+        form = CommentsForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.author = request.user
             comment.post = post
             comment.save()
-            return redirect('post_detail', post_id=post.id)
-
-    return render(request, 'blog/post_detail.html', {'post': post, 'comments': comments, 'comment_form': comment_form})
-
+            return redirect(reverse('all_posts'))
+        else:
+            form = CommentsForm()
+            if 'submitted' in request.GET:
+                submitted = True
+    return render(request, "blog/add_comment.html",
+                  {'form': form, 'post': post})
 
 
 def add_post(request):
@@ -79,7 +92,6 @@ def add_post(request):
 
 
 def edit_post(request, pk):
-
     post = get_object_or_404(Post, pk=pk)
 
     # if this is a POST request we need to process the form data
@@ -111,28 +123,3 @@ def delete_post(request, pk):
     post.delete()
     return redirect(reverse('all_posts'))
 
-
-# Comment section
-def comment_list(request):
-    """
-    This will return all coments posted
-    """
-    comments = Comment.objects.all()
-    return render(request, 'blog/post_detail.html', {'comments': comments})
-
-
-def add_comment(request):
-    submitted = False
-    if request.method == 'POST':
-        form = CommentsForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.author = User.objects.get(id=request.user.id)
-            comment.save()
-            return redirect('comment_list')
-    else:
-        form = CommentsForm()
-        if 'submitted' in request.GET:
-            submitted = True
-
-    return render(request, 'blog/add_comment.html', {'form': form, 'submitted': submitted})

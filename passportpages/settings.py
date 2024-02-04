@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['passport-pages-4af24cae3d46.herokuapp.com',
                  '8000-aigaa-passport-pages-buwd3qo1zi.us2.codeanyapp.com', 
                  '8000-aigaa-passportpages-u6co820jq0l.ws-eu107.gitpod.io',
                  '8000-aigaa-passportpages-u6co820jq0l.ws-eu108.gitpod.io',
+                 '8000-aigaa-passportpages-wzjuee0plx2.ws-eu108.gitpod.io',
                  'localhost']
 
 
@@ -53,6 +54,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'blog',
+
+
+    #other
+    'crispy_forms',
 ]
 
 SITE_ID = 1
