@@ -29,7 +29,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['passport-pages-4af24cae3d46.herokuapp.com',
                  '8000-aigaa-passport-pages-buwd3qo1zi.us2.codeanyapp.com', 
