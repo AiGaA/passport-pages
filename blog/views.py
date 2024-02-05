@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.views.generic.edit import FormMixin
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
+from django.contrib import messages
 from .models import Post, Comment
 from .forms import AddPost, CommentsForm
 
@@ -31,16 +32,6 @@ class UserPostList(generic.ListView):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     comments = Comment.objects.filter(post=post)
-    # comment_form = CommentsForm()
-    
-    # if request.method == 'POST':
-    #     comment_form = CommentsForm(request.POST)
-    #     if comment_form.is_valid():
-    #         comment = comment_form.save(commit=False)
-    #         comment.user = request.user
-    #         comment.post = post
-    #         comment.save()
-    #         return redirect('post_detail', pk=post.id)
 
     return render(request, 'blog/post_detail.html', {'post': post, 'comments': comments})
 
@@ -116,10 +107,8 @@ def edit_post(request, pk):
 
 def delete_post(request, pk):
     """
-    TODO:Need to add validations if user is allowed to do this action
+    Delete post
     """
-
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     return redirect(reverse('all_posts'))
-
