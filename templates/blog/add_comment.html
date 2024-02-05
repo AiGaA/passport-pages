@@ -2,13 +2,7 @@
 <!--This will hide the header content-->
 {% block header %} {% endblock %} {% block title %} Add a new article
 {% endblock %} {% block content %}
-{% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
+
 
 <div class="row">
   <div class="mt-5 text-center">

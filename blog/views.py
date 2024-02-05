@@ -10,8 +10,6 @@ from .forms import AddPost, CommentsForm
 
 
 # Create your views here.
-
-
 class HomePage(generic.ListView):
     model = Post
     queryset = Post.objects.order_by('-created_on')[:3]
@@ -55,23 +53,20 @@ def add_comment(request, pk):
                   {'form': form, 'post': post})
 
 
+@login_required
 def add_post(request):
     submitted = False
-    # create a form instance and populate it with data from the request:
     form = AddPost(request.POST, request.FILES)
-    # if this is a POST request we need to process the form data
-    if request.method == "POST":
 
+    if request.method == "POST":
         # check whether it's valid:
         if form.is_valid():
             user = form.save(commit=False)
             user.author = User.objects.get(id=request.user.id)
-            # process the data in form.cleaned_data as required
             user.save()
-            # redirect to a new URL:
-            return redirect(reverse('all_posts'))
+            messages.success(request, 'Post added successfully')
+            return redirect(reverse('my_posts'))
 
-        # if a GET (or any other method) we'll create a blank form
     else:
         form = AddPost()
         if 'submitted' in request.GET:
@@ -80,6 +75,7 @@ def add_post(request):
                   {'form': form, 'submitted': submitted})
 
 
+@login_required
 def edit_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
 
@@ -90,12 +86,9 @@ def edit_post(request, pk):
         if form.is_valid():
             user = form.save(commit=False)
             user.author = User.objects.get(id=request.user.id)
-            # process the data in form.cleaned_data as required
             user.save()
-            # redirect to a new URL:
             return redirect(reverse('all_posts'))
 
-        # if a GET (or any other method) we'll create a blank form
     else:
         form = AddPost(instance=post)
         if 'submitted' in request.GET:
@@ -103,6 +96,7 @@ def edit_post(request, pk):
     return render(request, "blog/edit_post.html", {'form': form, 'post': post})
 
 
+@login_required
 def delete_post(request, pk):
     """
     Delete post

@@ -1,10 +1,8 @@
 {% extends "blog/base.html" %} {% load static %}
 <!--This will hide the header content-->
 {% block header %} {% endblock %} {% block title %} Add a new article
-{%endblock%} {% block content %}
+{% endblock %} {% block content %}
 
-<!--Display error - Bootstrap alert-->
-{% if submitted %} Your post has been saved! {% else %}
 
 <div class="row">
   <div class="mt-5 text-center">
@@ -25,11 +23,13 @@
         <div class="mb-3">
           <label for="head_title" class="form-label">Title</label>
           {{ form.title }}
+          {{ form.title.errors }}
         </div>
 
         <div class="mb-3">
           <label for="content" class="form-label">New Story</label>
           {{ form.content }}
+          {{ form.title.errors }}
         </div>
 
         <div class="mb-3">
@@ -45,4 +45,4 @@
   </div>
 </div>
 
-{% endif %} {% endblock %}
+{% endblock %}
