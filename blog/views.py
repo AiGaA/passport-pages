@@ -87,7 +87,7 @@ def edit_post(request, pk):
             user = form.save(commit=False)
             user.author = User.objects.get(id=request.user.id)
             user.save()
-            return redirect(reverse('all_posts'))
+            return redirect(reverse('my_posts'))
 
     else:
         form = AddPost(instance=post)

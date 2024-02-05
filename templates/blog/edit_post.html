@@ -25,11 +25,13 @@
         <div class="mb-3">
           <label for="head_title" class="form-label">Title</label>
           {{ form.title }}
+          {{ form.title.errors }}
         </div>
 
         <div class="mb-3">
           <label for="content" class="form-label">New Story</label>
           {{ form.content }}
+          {{ form.content.errors }}
         </div>
 
         <div class="mb-3 current-img">
@@ -47,6 +49,9 @@
             {% endif %}
         </div>
         <div class="float-end" style="display: inline-block">
+          <button href="{% url 'my_posts' %}" type="submit" class="btn btn_color btn-outline">
+            Cancel
+          </button>
           <button type="submit" class="btn btn_color sign-up-btn">
             Save
           </button>

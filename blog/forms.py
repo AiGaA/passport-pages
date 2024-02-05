@@ -21,8 +21,8 @@ class EditPost(forms.ModelForm):
         fields = ['title', 'content', 'image']
 
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'content': forms.Textarea(attrs={'class': 'form-control'}),
+            'title': forms.TextInput(attrs={'class': 'form-control', 'required': True}),
+            'content': forms.Textarea(attrs={'class': 'form-control', 'required': True}),
             'image': forms.FileInput(attrs={'class': 'form-control'}),
         }
 

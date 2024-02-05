@@ -102,6 +102,78 @@ class TestAddPostView(TestCase):
         self.assertTrue(response.context['submitted'])
 
 
+class TestEditPostView(TestCase):
+    def setUp(self):
+        # Create a path to check the photo passes validation
+        image_path = 'static/images/placeholder-img.png'
+        files = SimpleUploadedFile(name='placeholder-img.png', content=open(image_path, 'rb').read(), content_type='image/jpeg')
+
+        # Create a user for authentication
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='testpassword'
+        )
+
+        # Create a post for testing
+        self.post = Post.objects.create(
+            title='Test Title',
+            content='Test Content',
+            image=files,
+            author=self.user
+        )
+
+    def test_edit_post_view_get(self):
+        # Login the user
+        self.client.login(username='testuser', password='testpassword')
+
+        # Make a GET request to the edit_post view
+        response = self.client.get(reverse('edit_post', kwargs={'pk': self.post.pk}))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Edit your story')
+
+    def test_edit_post_view_post_valid(self):
+        self.client.login(username='testuser', password='testpassword')
+        
+        # Create a path to check the photo passes validation
+        image_path = 'static/images/placeholder-img.png'
+        files = SimpleUploadedFile(name='placeholder-img.png', content=open(image_path, 'rb').read(), content_type='image/jpeg')
+
+        valid_form_data = {
+            'title': 'Updated Title',
+            'content': 'Updated Content',
+            'image': files,
+        }
+
+        response = self.client.post(reverse('edit_post', kwargs={'pk': self.post.pk}), data=valid_form_data)
+        self.assertRedirects(response, reverse('my_posts'))
+
+        updated_post = Post.objects.get(pk=self.post.pk)
+
+        self.assertEqual(updated_post.title, 'Updated Title')
+        self.assertEqual(updated_post.content, 'Updated Content')
+
+
+    def test_edit_post_view_post_invalid(self):
+
+        self.client.login(username='testuser', password='testpassword')
+        image_path = 'static/images/placeholder-img.png'
+        files = SimpleUploadedFile(name='placeholder-img.png', content=open(image_path, 'rb').read(), content_type='image/jpeg')
+
+        invalid_form_data = {
+            'title': '',
+            'content': 'Updated Content',
+            'image': files,
+        }
+
+        response = self.client.post(reverse('edit_post', kwargs={'pk': self.post.pk}), data=invalid_form_data)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'This field is required.')
+        updated_post = Post.objects.get(pk=self.post.pk)
+
+        self.assertEqual(updated_post.title, 'Test Title')
+        self.assertEqual(updated_post.content, 'Test Content')
+
+
 class TestAddCommentView(TestCase):
     def setUp(self):
         self.user = User.objects.create_user(
