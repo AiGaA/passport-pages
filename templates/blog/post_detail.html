@@ -26,7 +26,6 @@
       <div class="col-lg-12">
         
         <strong class="text-secondary float-end me-3">
-          {{ post.number_of_likes }} <i class="far fa-heart"></i>
           {% if request.user == post.author or request.user.is_superuser %}
           <a href="{% url 'edit_post' post.pk %}"><i class="fas fa-pencil-alt accent-color"></i></a>
           {% endif %}
@@ -38,19 +37,33 @@
         <p class="post-author">By: {{ post.author }}</p>
         <small>{{ post.created_on }}</small>
         <hr />
-        <p>{{ post.content | safe }}</p>
-      </div>
-      <div> 
-        {% for comment in comments %}
-          <p>{{ comment.author }} ({{ comment.created_on }})</p>
-          <p>{{ comment.text | linebreaks }}</p>
-        {% endfor %}
+        <p >{{ post.content | safe }}</p>
+        <hr />
       </div>
       <div> 
         {% if user.is_authenticated %}
-          <a href="{% url 'add_comment' post.pk %}">leave your comment</a>
+          <a href="{% url 'add_comment' post.pk %}"><button class="btn sign-up-btn float-end mb-3 me-3">Comment</button></a>
         {% else %}
-          <a href="{% url 'account_login' %}">Login to leave a comment</a>
+          <a href="{% url 'account_login' %}"><button class="btn sign-up-btn float-end mb-3 me-3">Comment</button></a>
+        {% endif %}
+      </div>
+      <h5>Comments: </h5>
+        {% for comment in comments %}
+
+        <div class="card bg-light mb-3">
+          <div class="card-header">By: {{ comment.author }} - ({{ comment.created_on }})</div>
+          <div class="card-body">
+            <p class="card-text">{{ comment.text | linebreaks }}</p>
+          </div>
+        </div>
+
+        {% endfor %}
+      
+      <div> 
+        {% if user.is_authenticated %}
+          <a href="{% url 'add_comment' post.pk %}"><button class="btn sign-up-btn float-end mb-3 me-3">Comment</button></a>
+        {% else %}
+          <a href="{% url 'account_login' %}"><button class="btn sign-up-btn float-end mb-3 me-3">Comment</button></a>
         {% endif %}
       </div>
     </div>

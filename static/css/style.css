@@ -11,12 +11,16 @@
 }
 
 .accent-color {
-    color: #fc4a1a;
+    color: #81b29a;
     transition: all 0.5s ease-in-out;
 }
 
 .accent-color:hover {
     color: #f7b733;
+}
+
+.warning-color {
+    color: #e07a5f;
 }
 
 body {
@@ -47,7 +51,7 @@ header.hero {
     height: 540px;
     margin-bottom: 50px;
     background: url("/static/images/hero.jpeg") no-repeat center center;
-    background-color: #868e96;
+    /* background-color: #868e96; */
     background-attachment: scroll;
     position: relative;
     background-size: cover;
@@ -91,7 +95,8 @@ header.hero .subheading {
 .jumbotron {
     margin: 5% 0;
     height: 420px;
-    background: linear-gradient(to right, #fc4a1a, #f7b733);
+    background: radial-gradient(755px at 10.1% 95.3%, rgb(242, 188, 141) 0%, rgb(242, 159, 141) 100.2%);
+    color:#212529;
 }
 
 .jumbotron .container {
@@ -102,6 +107,14 @@ header.hero .subheading {
     align-items: center;
 }
 
+.jumbotron-confirm {
+    height: 380px;
+    background: rgba(245, 235, 224, 0.8);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .sign-up-text {
     font-size: 2em;
     font-weight: 500;
@@ -110,26 +123,37 @@ header.hero .subheading {
 }
 
 .sign-up-btn {
-    width: 120px;
-    height: 40px;
+    width: 156px;
+    height: 48px;
     /* fallback for old browsers */
-    background: #fc4a1a;
+    background: #81b29a;
     /* Chrome 10-25, Safari 5.1-6 */
-    background: #fc4a1a;
+    background: #81b29a;
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: #fc4a1a;
-    text-decoration: none;
-    border: #fc4a1a 1px solid !important;
+    background: #81b29a;
+    border: #81b29a 1px solid !important;
     color: #ffffff;
     text-align: center;
+    font-size: 24px;
+}
+.delete-btn {
+    width: 156px;
+    height: 48px;
+    /* fallback for old browsers */
+    background: #e07a5f;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: #e07a5f;
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #e07a5f;
+    border: #e07a5f 1px solid !important;
+    color: #ffffff;
+    text-align: center;
+    font-size: 24px;
 }
 
 .sign-up-btn:hover {
-    background: #f7b733;
+    background: #f2cc8f;
     transition: ease-in-out 0.5s;
-}
-.sign-up-btn p {
-    padding: 2%;
 }
 
 .featured-card img {
@@ -140,7 +164,7 @@ header.hero .subheading {
 
 .card-title a {
     text-decoration: none;
-    color: #fc4a1a;
+    color: #3d405b;
     font-weight: 400;
     font-size: 24px;
 }
@@ -191,7 +215,12 @@ header.hero .subheading {
     }
 
     .jumbotron {
-        background: none;
-        background-color: #F5EBE0;
+        font-size: 18px;
+    }
+    .sign-up-btn {
+        margin-top: 10px;
+        width: 130px;
+        height: 48px;
+        font-size: 18px;
     }
 }

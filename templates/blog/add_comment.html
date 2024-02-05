@@ -20,15 +20,15 @@
           <label for="head_title" class="form-label">Your Comment: </label>
           {{ form.text }}
         </div>
-        <a href="{% url 'post_detail' post.pk %}">
-          <button type="submit" class="btn btn_color btn-outline">
-            Cancel
-          </button>
-        </a>
         <button type="submit" class="btn btn_color sign-up-btn float-end">
           Save
         </button>
       </form>
+      <a href="{% url 'post_detail' post.pk %}">
+        <button type="submit" class="btn btn_color btn-light float-end">
+          Cancel
+        </button>
+      </a>
     </div>
   </div>
 </div>

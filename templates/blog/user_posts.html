@@ -43,7 +43,7 @@
                             <small>{{ post.created_on }}</small>
                             <p><a href="{% url 'post_detail' post.pk %}">Read More</a>
                             <a href="{% url 'edit_post' post.pk %}"><i class="fas fa-pencil-alt accent-color float-end"></i></a></p>
-                            <a href="{% url 'delete_post' post.pk %}"><i class="fas fa-trash-alt accent-color float-end"></i></a>
+                            <a href="{% url 'delete_post' post.pk %}"><i class="fas fa-trash-alt warning-color float-end"></i></a>
                         </div>
                     </div>
                 </div>
