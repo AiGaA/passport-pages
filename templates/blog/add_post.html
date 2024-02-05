@@ -36,11 +36,15 @@
           <label for="image" class="form-label">Cover Photo</label>
           {{ form.image }}
         </div>
-
         <button type="submit" class="btn btn_color sign-up-btn float-end">
           Publish
         </button>
       </form>
+      <a href="{% url 'my_posts' %}"> 
+        <button type="submit" class="btn btn_color btn-outline float-end">
+          Cancel
+        </button>
+      </a>
     </div>
   </div>
 </div>

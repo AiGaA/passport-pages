@@ -102,5 +102,7 @@ def delete_post(request, pk):
     Delete post
     """
     post = get_object_or_404(Post, pk=pk)
-    post.delete()
-    return redirect(reverse('all_posts'))
+    if request.method == "POST":
+        post.delete()
+        return redirect('my_posts')
+    return render(request, 'blog/delete_post.html', {'post': post})

@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %} {% load static %}
+<!--This will hide the header content-->
+{% block header %} {% endblock %} {% block title %} Add a new article
+{% endblock %} {% block content %}
+
+<form
+    action=""
+    method="post"
+    enctype="multipart/form-data"
+    >
+    {% csrf_token %}
+    <div class="container">
+        <div class="jumbotron">
+            <h3>Are you sure you wish to delete this post?</h3>
+            <input href="{% url 'delete_post' post.pk %}" type="submit" class="btn btn_color btn-outline-danger" value="Delete"/>
+            <a href="{% url 'edit_post' post.pk %}">
+                <button href="{% url 'my_posts' %}" type="button" class="btn btn-primary">
+                    Cancel
+                </button>
+            </a>
+        </div>
+    </div>
+</form>
+
+{% endblock %}
