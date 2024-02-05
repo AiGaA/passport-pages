@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404 , redirect, reverse
 from django.views import generic, View
 from django.views.generic.edit import FormMixin
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Post, Comment
@@ -36,9 +37,9 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', {'post': post, 'comments': comments})
 
 
+@login_required
 def add_comment(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    submitted = False
     form = CommentsForm()
 
     if request.method == 'POST':
@@ -48,11 +49,8 @@ def add_comment(request, pk):
             comment.author = request.user
             comment.post = post
             comment.save()
-            return redirect(reverse('all_posts'))
-        else:
-            form = CommentsForm()
-            if 'submitted' in request.GET:
-                submitted = True
+            messages.success(request, 'Comment added successfully')
+            return redirect('post_detail', pk=post.pk)
     return render(request, "blog/add_comment.html",
                   {'form': form, 'post': post})
 
