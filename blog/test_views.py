@@ -174,6 +174,64 @@ class TestEditPostView(TestCase):
         self.assertEqual(updated_post.content, 'Test Content')
 
 
+class TestDeletePostView(TestCase):
+    def setUp(self):
+        # Create a test user
+        self.user = User.objects.create_user(username='testuser', password='testpassword')
+        
+        # Create a path to check the photo passes validation
+        image_path = 'static/images/placeholder-img.png'
+        files = SimpleUploadedFile(name='placeholder-img.png', content=open(image_path, 'rb').read(), content_type='image/jpeg')
+
+        # Create a test post
+        self.post = Post.objects.create(
+            title='Test Title',
+            content='Test Content',
+            image=files,
+            author=self.user,
+        )
+
+
+    def test_delete_post_view_authenticated_user(self):
+        self.client.login(username='testuser', password='testpassword')
+
+        response = self.client.post(reverse('delete_post', kwargs={'pk': self.post.pk}))
+
+        self.assertRedirects(response, reverse('my_posts'))
+
+        # Check that the post has been deleted from the database
+        with self.assertRaises(Post.DoesNotExist):
+            deleted_post = Post.objects.get(pk=self.post.pk)
+
+    
+    def test_delete_post_view_unauthenticated_user(self):
+        self.client.logout()
+
+        response = self.client.post(reverse('delete_post', kwargs={'pk': self.post.pk}))
+
+        self.assertRedirects(response, f'/accounts/login/?next={reverse("delete_post", kwargs={"pk": self.post.pk})}')
+
+        # Check that the post still exists in the database
+        existing_post = Post.objects.get(pk=self.post.pk)
+        self.assertEqual(existing_post.title, 'Test Title')
+        self.assertEqual(existing_post.content, 'Test Content')
+
+
+    def test_delete_post_view_invalid_post(self):
+        self.client.login(username='testuser', password='testpassword')
+
+        # Make a POST request to the delete_post view with an invalid post ID
+        response = self.client.post(reverse('delete_post', kwargs={'pk': 999}))
+
+        # Check that the response returns a 404 status code
+        self.assertEqual(response.status_code, 404)
+
+        # Check that no post has been deleted from the database
+        existing_post = Post.objects.get(pk=self.post.pk)
+        self.assertEqual(existing_post.title, 'Test Title')
+        self.assertEqual(existing_post.content, 'Test Content')
+
+
 class TestAddCommentView(TestCase):
     def setUp(self):
         self.user = User.objects.create_user(
