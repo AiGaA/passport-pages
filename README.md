@@ -104,18 +104,18 @@ The databas diagram is shown below:
 ### User Stories <a name="user-stories"></a>
 
 All website users/visitors: 
-As a **user** I can **create an account** so that **I can create, update and delete posts**
-As a **user** I can **view posts published** so that **I can select the one I wish to read about more**
-As a **user** I can **select and open an individual post** so that **I can read a full story**
+- As a **user** I can **create an account** so that **I can create, update and delete posts**
+- As a **user** I can **view posts published** so that **I can select the one I wish to read about more**
+- As a **user** I can **select and open an individual post** so that **I can read a full story**
 
 Registered website users:
-As a **registered user** I can **create my own posts** so that **I can share them on the blog for other users to read them**
-As a **registered user** I can **comment on other posts** so that **I can share my own insight on the story. or leave a comment for the creator**
-As a **registered user/content creator** I can **edit my own posts** so that **I can fix any typos or misspellings, or even update some information**
-As a **registered user/content creator** I can **delete my own posts** so that **I can clear any unwanted content**
+- As a **registered user** I can **create my own posts** so that **I can share them on the blog for other users to read them**
+- As a **registered user** I can **comment on other posts** so that **I can share my own insight on the story. or leave a comment for the creator**
+- As a **registered user/content creator** I can **edit my own posts** so that **I can fix any typos or misspellings, or even update some information**
+- As a **registered user/content creator** I can **delete my own posts** so that **I can clear any unwanted content**
 
 Admin:
-As an **admin** I can **manage user accounts and posts** so that **no harmful/malicious content has been posted**
+- As an **admin** I can **manage user accounts and posts** so that **no harmful/malicious content has been posted**
 
 
 ## Design <a name="design"></a>
