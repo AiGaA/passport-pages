@@ -50,8 +50,8 @@ nav a {
 header.hero {
     height: 540px;
     margin-bottom: 50px;
-    background: url("/staticfiles/images/hero.985684d48b95.jpeg/") no-repeat center center;
-    /* background-color: #868e96; */
+    background: url("/static/images/hero.jpeg") no-repeat center center;
+    background-color: #868e96;
     background-attachment: scroll;
     position: relative;
     background-size: cover;
@@ -91,6 +91,7 @@ header.hero .subheading {
 .card img {
     object-fit: cover;
 }
+
 
 .jumbotron {
     margin: 5% 0;

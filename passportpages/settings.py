@@ -29,13 +29,10 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['passport-pages-4af24cae3d46.herokuapp.com',
-                 '8000-aigaa-passport-pages-buwd3qo1zi.us2.codeanyapp.com', 
-                 '8000-aigaa-passportpages-u6co820jq0l.ws-eu107.gitpod.io',
-                 '8000-aigaa-passportpages-u6co820jq0l.ws-eu108.gitpod.io',
-                 '8000-aigaa-passportpages-wzjuee0plx2.ws-eu108.gitpod.io',
+                 '8000-aigaa-passportpages-3880nvp63bs.ws-eu108.gitpod.io',
                  'localhost']
 
 
@@ -48,11 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.sites',
+    'django.contrib.staticfiles',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'cloudinary_storage',
-    'django.contrib.staticfiles',
     'cloudinary',
     'blog',
 
@@ -159,7 +156,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-WHITENOISE_STATIC_PREFIX = '/static/'
+# WHITENOISE_STATIC_PREFIX = '/static/'
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
