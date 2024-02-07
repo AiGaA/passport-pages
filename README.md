@@ -169,6 +169,7 @@ Placeholder image was custom made with [Canva](https://www.canva.com/).
 
 ### Website Features <a name="website-features"></a>
 
+#### Main Page
 - The website consists of the main responsive navbar 
 ![alt text](./assets/docs/features/navbar-lg.PNG "Image of a full screen navbar")
 ![alt text](./assets/docs/features/navbar-sm.PNG "Image of a mobile device navbar")
@@ -183,15 +184,18 @@ Placeholder image was custom made with [Canva](https://www.canva.com/).
 - The footer has some social links included. 
 ![alt text](./assets/docs/features/main-pg-btn.PNG "Bottom of the main page")
 
+#### A Selected Story
 - On the one story page, the user can read a full article and leave a comment. 
 - The user will be redirected to login page, if they are not registered user. 
 ![alt text](./assets/docs/features/one-post-pg.PNG "One story page")
 ![alt text](./assets/docs/features/comment-pg.PNG "Comments page")
 
+#### All Stories
 - All stories page are shown all stories that have been posted by various of users. 
 - It is easy to spot which post is posted by the user, as there is a pencil (edit option) at the bottom of the post on all stories page.
 ![alt text](./assets/docs/features/all-stories-pg.PNG "All stories page")
 
+#### Edit Page
 - Edit page is accessible only by registered user. 
 - When selecting edit option for the post, it will populate already posted content.
 - If user does not want to make any changes, they can select Cancel option.
@@ -199,10 +203,14 @@ Placeholder image was custom made with [Canva](https://www.canva.com/).
 - If user has made all the changes needed, they can click on save. The message will appear on top left corner that post has been successfully saved. 
 ![alt text](./assets/docs/features/edit-page.PNG "Edit page")
 
+
+#### Create Story Page
 - Create story is a blank form page, with option to write a story, add photo and post it. 
 - If user does not want to post it, they can cancel it. 
 ![alt text](./assets/docs/features/create-story-pg.PNG "Create Story page")
 
+
+#### All User Stories - User side only.
 - Users story page shows all posted posted posts of that user. 
 - The small icons pencil and a bin indicate that these can be edited or deleted accordingly.
 ![alt text](./assets/docs/features/my-stories-pg.PNG "Users stories page")
