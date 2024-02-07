@@ -20,6 +20,9 @@ Fully published website is here: [Passport Pages](https://passport-pages-4af24ca
     - [Color Scheme](#color-scheme)
     - [Typography](#typography)
     - [Images](#images)
+- [Features](#features)
+    - [Website Features](#website-features)
+    - [Future Implementations](#future-implementations)
 - [Technologies Used](#technologies-used)
     - [Main Languages Used](#languages)
     - [Frameworks, Libraries & Programs Used](#frameworks)
@@ -162,6 +165,54 @@ Images used in this project are taken from free images source [pexels.com](https
 Placeholder image was custom made with [Canva](https://www.canva.com/).
 
 
+## Features  <a name="features"></a>
+
+### Website Features <a name="website-features"></a>
+
+- The website consists of the main responsive navbar 
+![alt text](./assets/docs/features/navbar-lg.PNG "Image of a full screen navbar")
+![alt text](./assets/docs/features/navbar-sm.PNG "Image of a mobile device navbar")
+
+- When user is logged in, there appears a dropdown menu to select to create a story or check all their own stories
+![alt text](./assets/docs/features/dropdown-menu.PNG "Image of a menu dropdown that appears when user has logged in")
+
+- The main page has a latest 3 stories added to the page by the user, when clicked on the 'Read More' button, it will lead to that article specific only. 
+![alt text](./assets/docs/features/main-pg-layout.PNG "Image of a main page and 3 latest stories displayed")
+
+- At the bottom of the main page, there is a inviting text and a sign-up button that redirects users to the sign-up page. 
+- The footer has some social links included. 
+![alt text](./assets/docs/features/main-pg-btn.PNG "Bottom of the main page")
+
+- On the one story page, the user can read a full article and leave a comment. 
+- The user will be redirected to login page, if they are not registered user. 
+![alt text](./assets/docs/features/one-post-pg.PNG "One story page")
+![alt text](./assets/docs/features/comment-pg.PNG "Comments page")
+
+- All stories page are shown all stories that have been posted by various of users. 
+- It is easy to spot which post is posted by the user, as there is a pencil (edit option) at the bottom of the post on all stories page.
+![alt text](./assets/docs/features/all-stories-pg.PNG "All stories page")
+
+- Edit page is accessible only by registered user. 
+- When selecting edit option for the post, it will populate already posted content.
+- If user does not want to make any changes, they can select Cancel option.
+- If user wants to delete the post, select delete. This will redirect to confirmation page, if user is sure to delete this post. 
+- If user has made all the changes needed, they can click on save. The message will appear on top left corner that post has been successfully saved. 
+![alt text](./assets/docs/features/edit-page.PNG "Edit page")
+
+- Create story is a blank form page, with option to write a story, add photo and post it. 
+- If user does not want to post it, they can cancel it. 
+![alt text](./assets/docs/features/create-story-pg.PNG "Create Story page")
+
+- Users story page shows all posted posted posts of that user. 
+- The small icons pencil and a bin indicate that these can be edited or deleted accordingly.
+![alt text](./assets/docs/features/my-stories-pg.PNG "Users stories page")
+
+
+### Future Implementations <a name="future-implementations"></a>
+
+
+
+
 ## Technologies Used  <a name="technologies-used"></a>
 
 ### Main Languages Used <a name="languages"></a>
@@ -288,7 +339,7 @@ os.environ['CLOUDINARY_URL'] = 'ADDED_BY_YOU'
 - Run the project once more
 
 
-### Heroku <a name="heroku"></a>#
+### Heroku <a name="heroku"></a>
 
 This project can be deployed to Heroku with the following steps:
 
