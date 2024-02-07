@@ -210,7 +210,11 @@ Placeholder image was custom made with [Canva](https://www.canva.com/).
 
 ### Future Implementations <a name="future-implementations"></a>
 
-
+Some of the future implementations for this project is:
+- Implement likes button, so that anyone reading a story can like it too.
+- Implement checks if the post or comment that was posted were not malicious. 
+- Implement edit user comment, so that the user that posted a comment can edit it, if they wish to. 
+- create profile page for the user. 
 
 
 ## Technologies Used  <a name="technologies-used"></a>
