@@ -3,7 +3,7 @@
 Web application for travel enthusiasts that wishes to share the travel stories.
 ![alt text](./assets/docs/wireframes/final-img.PNG "Image of the website appearance on different screen sizes")  
 
-Fully published website is here: [Passport Pages]("https://passport-pages-4af24cae3d46.herokuapp.com/")
+Fully published website is here: [Passport Pages](https://passport-pages-4af24cae3d46.herokuapp.com/)
 
 ## Table of Contents
 - [About](#about)
@@ -27,6 +27,7 @@ Fully published website is here: [Passport Pages]("https://passport-pages-4af24c
     - [Automated Tests](#automated-tests)
     - [Validation](#validation)
 - [Deployment](#deployment)
+    - [Local Deployment](#local-deployment)
     - [Heroku](#heroku)
 - [Credits](#credits)
 
@@ -250,3 +251,65 @@ Placeholder image was custom made with [Canva](https://www.canva.com/).
 ![alt text](./assets/docs/tests/wave-main-page "Wave Accessibility report")
 
 </details>
+
+
+## Deployment  <a name="deployment"></a>
+
+Before getting to the deployment part, make sure you have set up accounts in [ElephantSQL](https://www.elephantsql.com/) and also [Cloudinary](https://cloudinary.com/).
+You will keys provided by these two application to connect to the project and include them into your env.py file. 
+
+### Local Deployment <a name="local-deployment"></a>
+
+You can clone this repository and run it locally with the following steps:
+
+- Login to GitHub (https://wwww.github.com)
+- Select the repository [Passport Pages](https://github.com/AiGaA/passport-pages)
+- Click the Code button and copy the HTTPS url, for example: https://github.com/AiGaA/passport-pages.git
+- In your IDE, open a terminal and run the git clone command, for example: git clone https://github.com/AiGaA/passport-pages.git
+- The repository will now be cloned in your workspace
+- You will need to create your own env.py file and this should be added to .gitignore file too (so this is not commited and exposed to public) 
+- In env.py add the following code with the relevant key, value pairs, and ensure you enter the correct key values
+
+```
+import os
+os.environ['SECRET_KEY'] = 'ADDED_BY_YOU'
+os.environ['DATABASE_URL'] = 'ADDED_BY_YOU'
+os.environ['CLOUDINARY_URL'] = 'ADDED_BY_YOU'
+```
+
+- Install the relevant packages as per the requirements.txt file
+- In the settings.py ensure the connection is set to either the Heroku postgres database or the local sqllite database
+- Ensure debug is set to true in the settings.py file for local development
+- Run "python3 manage.py makemigrations" to check the status of the migrations
+- Run "python3 manage.py migrate" to migrate the database
+- Run "python3 manage.py createsuperuser" to create a super/admin user
+- Start the application by running python3 manage.py runserver and it will open a new window. 
+- This will prompt with an error, and you will need to copy the url provided to your ALLOWED_HOSTS
+- Run the project once more
+
+
+### Heroku <a name="heroku"></a>#
+
+This project can be deployed to Heroku with the following steps:
+
+- Ensure debug is set to false in the settings.py file
+- Run "python3 manage.py makemigrations" to check the status of the migrations
+- Run "python3 manage.py migrate" to migrate the database
+- Run "python3 manage.py createsuperuser" to create a super/admin user
+- Create an account on [Heroku](https://www.heroku.com/)
+- Create an app, give it a name, and select a region
+- Under resources search for postgres, and add a Postgres database to the app
+- Note the DATABASE_URL, this needs to be set as an environment variable in Heroku and your local environment variables
+- Create a Procfile with the text: web: gunicorn passportpages.wsgi
+- Make sure you add your environment variables (env.py) to Heroku's Config Vars
+- In the settings.py ensure the connection is to the Heroku postgres database
+- Ensure debug is set to false in the settings.py file
+- Add 'localhost', and 'passportpages.herokuapp.com' to the ALLOWED_HOSTS variable in settings.py
+- Connect the app to GitHub, and enable automatic deploys from main
+- Click deploy to deploy your application to Heroku for the first time
+
+## Credits  <a name="credits"></a>
+
+I wish to say big thank you for everyone at Code Institute (CI) and Slack community for great help on this project when stuck the most. 
+The project was based on CI walkthrough project 'I think before I blog'.
+Some repositories I found very helpful too: https://github.com/AlexGCbn/CI_PP4_Hike-a-thon/ and https://github.com/rnc-personal/ci-fullstack-pp4 
