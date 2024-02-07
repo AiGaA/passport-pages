@@ -1,6 +1,7 @@
 # Passport Pages
 
 Web application for travel enthusiasts that wishes to share the travel stories.
+![alt text](./assets/docs/wireframes/final-img.PNG "Image of the website appearance on different screen sizes")  
 
 Fully published website is here: [Passport Pages]("https://passport-pages-4af24cae3d46.herokuapp.com/")
 
@@ -23,9 +24,8 @@ Fully published website is here: [Passport Pages]("https://passport-pages-4af24c
     - [Main Languages Used](#languages)
     - [Frameworks, Libraries & Programs Used](#frameworks)
 - [Testing](#testing)
-    - [Validator Testing](#validator-testing)
-    - [Bugs](#bugs)
-    - [Unfixed Bugs](#unfixed-bugs)
+    - [Automated Tests](#automated-tests)
+    - [Validation](#validation)
 - [Deployment](#deployment)
     - [Heroku](#heroku)
 - [Credits](#credits)
@@ -76,7 +76,6 @@ Website pages described below
 - The project also have files: 
     - templates
     - README.md
-    - TESTING.md
     - Procfile
     - requirements.txt
 - The project was built on basis of Django Blog project from Code Institute that was part of a walkthrough app.
@@ -187,3 +186,67 @@ Placeholder image was custom made with [Canva](https://www.canva.com/).
 - [Am I Responsive](https://ui.dev/amiresponsive): To check, if website looks good across multiple devices
 - [Travel Guide](https://www.myirelandtour.com/travelguide/england/index.php): For content
 - Google Chrome DevTools: This was used throught the project to debug and see the compatibilaty across multiple device sizes
+
+
+## Testing  <a name="testing"></a>
+
+### Automated Tests <a name="automated-tests"></a>
+#### Unit tests
+- Total of 36 tests were run for models/views/forms files. 
+
+![alt text](./assets/docs/tests/unittest-report.PNG "Overall Unit test report")
+![alt text](./assets/docs/tests/coverage.PNG "Overall Coverage report")
+
+### Validation <a name="validation"></a>
+#### HTML
+- [HTML Validator](https://jigsaw.w3.org) was used to check HTML file.
+- Some errors were found, as the Django code was dedecteed and this caused some issues with marking brackets '{ }' as invalid.
+<details><summary>HTML Validation screenshots</summary>
+
+![alt text](./assets/docs/tests/html-validation.PNG "Image of HTML Validation for the page 'All Stories'")
+![alt text](./assets/docs/tests/html-validation-2.PNG "Image of HTML Validation for the page 'All Stories'")
+
+</details>
+
+#### CSS
+- [CSS Validator](https://jigsaw.w3.org/css-validator) was used to check CSS file.
+- No errors were found.
+<details><summary>CSS Validation screenshots</summary>
+
+![alt text](./assets/docs/tests/css-validation.PNG "Image of CSS Validation")
+
+</details>
+
+#### Python 
+- Online Validator [ExtendsClass](https://extendsclass.com/python-tester.html) was used to check Python file.
+- No errors were found.
+<details><summary>Python Validation screenshots</summary>
+
+![alt text](./assets/docs/tests/python-validation.PNG "Image of Python views.py file Validation")
+
+</details>
+
+#### Lighthouse 
+- Lighthouse Validator was used to check live website performance.
+- Some errors were displayed, as image 
+<details><summary>Lighthouse screenshots</summary>
+
+- Main Page Performance results
+![alt text](./assets/docs/tests/lh-main-page.PNG "Main Page Performance results")
+
+- All Stories Page Performance results
+![alt text](./assets/docs/tests/lh-all-stories-page.PNG "All Stories Page Performance results")
+
+- Some of the main issues within the performance report
+![alt text](./assets/docs/tests/lh-main-issues.PNG "Some of the main issues within the performance report")
+
+</details>
+
+#### Wave 
+- [Wave](https://wave.webaim.org/) was used to check sites accessibility.
+- Some errors appeared on contrast between some background colors and fonts.
+<details><summary>Wave screenshots</summary>
+
+![alt text](./assets/docs/tests/wave-main-page "Wave Accessibility report")
+
+</details>
