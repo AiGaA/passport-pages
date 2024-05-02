@@ -314,12 +314,14 @@ Some of the future implementations for this project is:
 
 ### Validation <a name="validation"></a>
 #### HTML
-- [HTML Validator](https://jigsaw.w3.org) was used to check HTML file.
-- Some errors were found, as the Django code was dedecteed and this caused some issues with marking brackets '{ }' as invalid.
+- [HTML Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fpassport-pages-4af24cae3d46.herokuapp.com%2F) was used to check HTML file.
+- Some errors were found, as the Django code was dedected and this caused some issues with marking brackets '{ }' as invalid. These have been now fixed. 
 <details><summary>HTML Validation screenshots</summary>
 
 ![alt text](./assets/docs/tests/html-validation.PNG "Image of HTML Validation for the page 'All Stories'")
 ![alt text](./assets/docs/tests/html-validation-2.PNG "Image of HTML Validation for the page 'All Stories'")
+
+![alt text](./assets/docs/tests/html-validation-3.PNG "Image of HTML Validation")
 
 </details>
 

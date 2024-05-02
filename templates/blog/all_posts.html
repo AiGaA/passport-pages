@@ -13,7 +13,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 mt-5 mb-5">
-        {% for post in post_list %}
+            {% for post in post_list %}
                 <div class="card mt-3">
                     <div class="row">
                         
@@ -33,7 +33,7 @@
                                 <h5 class="card-title"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h5>
                                 <p>By: {{ post.author }}</p>
                                 <p>{{ post.content }}</p>
-                                <a href="{% url 'post_detail' post.pk %}">Read More</br>
+                                <a href="{% url 'post_detail' post.pk %}">Read More<br></a>
                                     {% if request.user == post.author or request.user.is_superuser %}
                                     <a href="{% url 'edit_post' post.pk %}"><i class="fas fa-pencil-alt accent-color"></i></a>
                                     {% endif %}
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                 </div>
-        {% endfor %}
+            {% endfor %}
         </div>
     </div>
 </div>
