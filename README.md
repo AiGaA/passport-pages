@@ -35,6 +35,7 @@ Fully published website is here: [Passport Pages](https://passport-pages-4af24ca
         - [Admin](#admin-tests)
     - [Automated Tests](#automated-tests)
     - [Validation](#validation)
+    - [Bugs](#bugs)
 - [Deployment](#deployment)
     - [Local Deployment](#local-deployment)
     - [Heroku](#heroku)
@@ -367,6 +368,14 @@ Some of the future implementations for this project is:
 ![alt text](./assets/docs/tests/wave-main-page.PNG "Wave Accessibility report")
 
 </details>
+
+
+### Bugs <a name="bugs"></a>
+
+| Bug | Solution | Status |
+| --- | --- | --- |
+| Upon deploying the main image was not showing up on the deployed version of the site  | The issue was fixed by Whitenoise and static file hirearchy fix within the settings file | Fixed |
+| HTML tags within the project were causing errors on Validator | Upon checking the links, all HMTL errors were fixed | Fixed |
 
 
 ## Deployment  <a name="deployment"></a>
