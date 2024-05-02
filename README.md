@@ -320,7 +320,7 @@ Some of the future implementations for this project is:
 
 ![alt text](./assets/docs/tests/html-validation.PNG "Image of HTML Validation for the page 'All Stories'")
 ![alt text](./assets/docs/tests/html-validation-2.PNG "Image of HTML Validation for the page 'All Stories'")
-
+![alt text](./assets/docs/tests/html-validation-4.PNG "Image of HTML Validation for the page 'All Stories'")
 ![alt text](./assets/docs/tests/html-validation-3.PNG "Image of HTML Validation")
 
 </details>
