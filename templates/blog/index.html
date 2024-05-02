@@ -20,7 +20,7 @@
             {% endif %}    
             
             <div class="card-body">
-                <h5 class="card-title">{{ post.title }}</a></h5>
+                <h5 class="card-title">{{ post.title }}</h5>
                 <p>By: {{ post.author }}</p>
                 <p><a href="{% url 'post_detail' post.pk %}">Read More</a></p>
             </div>
@@ -34,17 +34,14 @@
   <div class="container text-center">
     <p class="lead sign-up-text">
       Have you ever wanted to create that little diary of your travels and share
-      the best ones with others?</br>Join us to create your own stories and share
-      your best trips, experiences and places to visit. <br />
+      the best ones with others?<br> Join us to create your own stories and share
+      your best trips, experiences and places to visit. <br>
       Be inspired and become an inspiration to someone else!
     </p>
 
-      <a href="{% url 'account_signup' %}">
-        <button
-        class="btn btn-primary btn-lg sign-up-btn"
-        type="button"
-        >Sign Up</button></a
-      >
+      <a class="sign-up-btn" href="{% url 'account_signup' %}">
+        Sign Up
+      </a>
   </div>
 </div>
 

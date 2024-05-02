@@ -33,6 +33,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['passport-pages-4af24cae3d46.herokuapp.com',
                  '8000-aigaa-passportpages-3880nvp63bs.ws-eu108.gitpod.io',
+                 '8000-aigaa-passportpages-vns7olvk75g.ws-eu110.gitpod.io',
                  'localhost']
 
 
