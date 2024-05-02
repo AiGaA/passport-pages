@@ -27,6 +27,12 @@ Fully published website is here: [Passport Pages](https://passport-pages-4af24ca
     - [Main Languages Used](#languages)
     - [Frameworks, Libraries & Programs Used](#frameworks)
 - [Testing](#testing)
+    - [Manual Tests](#manual-tests)
+        - [Home Page](#home-page-tests)
+        - [Navbar](#navbar-tests)
+        - [Registration](#registration-tests)
+        - [Stories](#stories-tests)
+        - [Admin](#admin-tests)
     - [Automated Tests](#automated-tests)
     - [Validation](#validation)
 - [Deployment](#deployment)
@@ -254,6 +260,51 @@ Some of the future implementations for this project is:
 
 ## Testing  <a name="testing"></a>
 
+### Manual Tests <a name="manual-tests"></a>
+#### Home page <a name="home-page-tests"></a>
+
+| Testing | Steps | Expected Outcome | Results |
+| --- | --- | --- | --- |
+| Upon going onto Website, user can see the latest stories posted  | Test by creating a new story, this should appear onto main page | Upon creating new story, it appears onto the home page | PASS |
+
+#### Navbar <a name="navbar-tests"></a>
+| Testing | Steps | Expected Outcome | Results |
+| --- | --- | --- | --- |
+| Navbar  | Check that each link is working correctly | User is able to browse the website through the navbar links provided | PASS |
+
+#### Registration <a name="registration-tests"></a>
+| Testing | Steps | Expected Outcome | Results |
+| --- | --- | --- | --- |
+| User Login page | Test if link is working | User is directed to Login page | PASS |
+| User Login page - form validation | Test with incorrect password | The form validation works and prompts user an incorrect password has been entered | PASS |
+| User Login page - form validation | Test with incorrect username | The form validation works and prompts user an incorrect username has been entered | PASS |
+| User Signup page | Test if link is working | User is directed to Signup page | PASS |
+| User Signup page - form validation | Test with submitting an empty form | Form validation prompts the user | PASS |
+| User Signup page - form validation | Test with submitting invalid email address | Form validation prompts the user that invalid email address has been entered | PASS |
+| User Signup page - form validation | Test with submitting invalid password | Form validation prompts the user that invalid password has been entered | PASS |
+| User Signup page - form validation | Test with submitting non-matching password | Form validation prompts the user that non-matching password has been entered | PASS |
+| User Signup page - form validation | Test with submitting already taken username | Form validation prompts the user that entered username already exists | PASS |
+
+#### Stories <a name="stories-tests"></a>
+| Testing | Steps | Expected Outcome | Results |
+| --- | --- | --- | --- |
+| User stories | Test if link is working | User is directed to their story page | PASS |
+| Create new story | Test if registered user can create a new story | User can add new story, title, content, add a photo for the story, and publish | PASS |
+| Edit story | Test if registered user can edit their story | User can edit the existing story and re-publish it | PASS |
+| Delete story | Test if registered user can delete their story | User can delete the existing story and it will be deleted | PASS |
+| Comments - any user | Test if any user can comment on stories | To comment on story, the user will need to login to their account or register first | PASS |
+| Comments - existing user| Test if registered user can comment on stories | Registered user can leave a comment on stories | PASS |
+
+
+#### Admin <a name="admin-tests"></a>
+| Testing | Steps | Expected Outcome | Results |
+| --- | --- | --- | --- |
+| Admin login - form validation | Test with submitting an empty form | Form validation prompts the user | PASS |
+| Admin login - form validation | Test with submitting invalid password | Form validation prompts the user that invalid password has been entered | PASS |
+| Admin login - form validation | Test with submitting invalid username | Form validation prompts the user that invalid username has been entered | PASS |
+| Admin panel | Test if owner can edit/delete user stories, in case inapropriate content has been found | Owner of the site is able to edit, delete any stories | PASS |
+
+
 ### Automated Tests <a name="automated-tests"></a>
 #### Unit tests
 - Total of 36 tests were run for models/views/forms files. 
@@ -311,7 +362,7 @@ Some of the future implementations for this project is:
 - Some errors appeared on contrast between some background colors and fonts.
 <details><summary>Wave screenshots</summary>
 
-![alt text](./assets/docs/tests/wave-main-page "Wave Accessibility report")
+![alt text](./assets/docs/tests/wave-main-page.PNG "Wave Accessibility report")
 
 </details>
 
